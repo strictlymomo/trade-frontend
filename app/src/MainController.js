@@ -29,13 +29,15 @@
     $scope.tokens = [];
     $scope.commonTrades = [];
 
-    
+
     // config autocomplete
     $scope.simulateQuery = false;
     $scope.isDisabled = false;
     $scope.noCache = true;
-    $scope.taker = {search_value: "", symbol: ""};
-    $scope.maker = {search_value: "", symbol: ""};
+
+    $scope.selectedItem = null;
+    $scope.taker = null;
+    $scope.maker = null;
 
 
     TokensService
@@ -51,14 +53,14 @@
           // Autocomplete
           // ******************************
 
-          $scope.tokensForSearch = loadAllTokens();
+          $scope.tokens = loadAllTokens();
 
-          $log.info('tokensForSearch:');
-          console.dir($scope.tokensForSearch);
-          self.querySearch = querySearch;
-          self.selectedItemChange = selectedItemChange;
-          self.searchTextChange = searchTextChange;
-          $log.info('searchTextChange:', searchTextChange);
+          $log.info('tokens to be searched:');
+          console.dir($scope.tokens);
+          $scope.querySearch = querySearch;
+          $scope.selectedItemChangeTaker = selectedItemChangeTaker;
+          $scope.selectedItemChangeMaker = selectedItemChangeMaker;
+          $scope.searchTextChange = searchTextChange;
 
           // ******************************
           // Autocomplete Internal methods
@@ -69,8 +71,10 @@
            * remote dataservice call.
            */
           function querySearch(query) {
-            var results = query ? $scope.tokensForSearch.filter(createFilterFor(query)) : $scope.tokensForSearch,
+            console.log('querySearch, query:', query);
+            var results = query ? $scope.tokens.filter(createFilterFor(query)) : $scope.tokens,
               deferred;
+            console.log('querySearch, results:', results);
             if ($scope.simulateQuery) {
               deferred = $q.defer();
               $timeout(function () {
@@ -84,16 +88,24 @@
 
           function searchTextChange(text) {
             console.log('Text changed to ' + text);
-            $scope.taker.symbol = text;
-            console.log('$scope.search:', $scope.searchTaker);
           }
 
-          function selectedItemChange(item) {
-            console.log('Item changed to ' + JSON.stringify(item));
+          function selectedItemChangeTaker(item) {
+            console.log('Taker Item changed to ' + JSON.stringify(item));
             if (!item) {
               return;
             }
-            // setTaker(item.symbol);
+            console.log("selectedItem:", $scope.selectedItemTaker);
+            setTaker(item);
+          }
+
+          function selectedItemChangeMaker(item) {
+            console.log('Maker Item changed to ' + JSON.stringify(item));
+            if (!item) {
+              return;
+            }
+            console.log("selectedItem:", $scope.selectedItemMaker);
+            setMaker(item);
           }
 
           /**
@@ -111,21 +123,31 @@
            * Create filter function for a query string
            */
           function createFilterFor(query) {
+
+            angular.lowercase = function(text) {
+              text.toLowerCase();
+            }
+
             var lowercaseQuery = angular.lowercase(query);
 
             return function filterFn(item) {
-              return (item.search_value.indexOf(lowercaseQuery) === 0);
+
+              // console.log('item:', item.search_value);
+              // console.log('item typeof:', typeof item.search_value);
+              // console.log('matching item:', item.search_value.indexOf(lowercaseQuery) === 0);
+              return (item.search_value.indexOf(lowercaseQuery) === -1); // hack to return all results.  not matching yet
             };
           }
 
-          function setTaker(token) {
-            self.taker = token;
+          function setTaker(selection) {
+            $scope.taker = selection;
+            console.log("$scope.taker:", $scope.taker);
           }
 
-          function setMaker(token) {
-            self.maker = token;
+          function setMaker(selection) {
+            $scope.maker = selection;
+            console.log("$scope.maker:", $scope.maker);
           }
-
         }
       );
 

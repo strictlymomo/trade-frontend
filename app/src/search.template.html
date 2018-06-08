@@ -7,56 +7,60 @@
     <form class="search-module" ng-submit="$event.preventDefault()">
       <h2><span>I want to trade</span>
       <md-autocomplete
-          ng-disabled="MainController.isDisabled"
-          md-no-cache="MainController.noCache"
+          ng-disabled="isDisabled"
+          md-no-cache="noCache"
 
-          md-items="item in MainController.querySearch(MainController.searchTaker.symbol)"
+          md-search-text="searchTextTaker"
+          md-search-text-change="searchTextChange(searchTextTaker)"
+          md-items="item in querySearch(searchTextTaker)"
           md-item-text="item.symbol"
 
-          md-search-text="MainController.searchTaker.symbol"
-          md-search-text-change="MainController.searchTextChange(MainController.searchTaker.symbol)"
-
-          md-selected-item="MainController.selectedItem"
-          md-selected-item-change="MainController.selectedItemChange(item)"
+          md-selected-item="selectedItemTaker"
+          md-selected-item-change="selectedItemChangeTaker(item)"
 
           md-min-length="1"
           placeholder="EOS"
           md-menu-class="autocomplete-custom-template"
       >
         <md-item-template>
-          <md-list-item ng-click="MainController.setTaker()">
+          <md-list-item>
             <div class="md-list-item-text">
               {{item.symbol}}
             </div>
           </md-list-item>
         </md-item-template>
+        <md-not-found>
+          No matches found.
+        </md-not-found>
       </md-autocomplete>
       <span>for</span>
-      <md-autocomplete
-          ng-disabled="MainController.isDisabled"
-          md-no-cache="MainController.noCache"
+        <md-autocomplete
+            ng-disabled="isDisabled"
+            md-no-cache="noCache"
 
-          md-items="item in MainController.querySearch(MainController.search.symbol)"
-          md-item-text="item.symbol"
+            md-search-text="searchTextMaker"
+            md-search-text-change="searchTextChange(searchTextMaker)"
+            md-items="item in querySearch(searchTextMaker)"
+            md-item-text="item.symbol"
 
-          md-search-text="MainController.search.symbol"
-          md-search-text-change="MainController.searchTextChange(MainController.search.symbol)"
+            md-selected-item="selectedItemMaker"
+            md-selected-item-change="selectedItemChangeMaker(item)"
 
-          md-selected-item="MainController.selectedItem"
-          md-selected-item-change="MainController.selectedItemChange(item)"
-
-          md-min-length="1"
-          placeholder="ADC"
-          md-menu-class="autocomplete-custom-template"
-      >
-        <md-item-template>
-          <md-list-item ng-click="MainController.setTaker()">
-            <div class="md-list-item-text">
-              {{item.symbol}}
-            </div>
-          </md-list-item>
-        </md-item-template>
-      </md-autocomplete>
+            md-min-length="1"
+            placeholder="EOS"
+            md-menu-class="autocomplete-custom-template"
+        >
+          <md-item-template>
+            <md-list-item>
+              <div class="md-list-item-text">
+                {{item.symbol}}
+              </div>
+            </md-list-item>
+          </md-item-template>
+          <md-not-found>
+            No matches found.
+          </md-not-found>
+        </md-autocomplete>
       </h2>
       <md-button>Search Exchanges</md-button>
     </form>
