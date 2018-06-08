@@ -30,6 +30,9 @@
     $scope.commonTrades = [];
 
 
+    // form submittal
+    $scope.complete = false;
+
     // config autocomplete
     $scope.simulateQuery = false;
     $scope.isDisabled = false;
@@ -60,7 +63,8 @@
           $scope.querySearch = querySearch;
           $scope.selectedItemChangeTaker = selectedItemChangeTaker;
           $scope.selectedItemChangeMaker = selectedItemChangeMaker;
-          $scope.searchTextChange = searchTextChange;
+          $scope.searchTextChangeTaker = searchTextChangeTaker;
+          $scope.searchTextChangeMaker = searchTextChangeMaker;
 
           // ******************************
           // Autocomplete Internal methods
@@ -86,8 +90,12 @@
             }
           }
 
-          function searchTextChange(text) {
+          function searchTextChangeTaker(text) {
             console.log('Text changed to ' + text);
+            if (!text) {
+              $scope.taker = null;
+            }
+            checkForCompleteness();
           }
 
           function selectedItemChangeTaker(item) {
@@ -97,6 +105,14 @@
             }
             console.log("selectedItem:", $scope.selectedItemTaker);
             setTaker(item);
+          }
+
+          function searchTextChangeMaker(text) {
+            console.log('Text changed to ' + text);
+            if (!text) {
+              $scope.maker = null;
+            }
+            checkForCompleteness();
           }
 
           function selectedItemChangeMaker(item) {
@@ -135,19 +151,33 @@
               // console.log('item:', item.search_value);
               // console.log('item typeof:', typeof item.search_value);
               // console.log('matching item:', item.search_value.indexOf(lowercaseQuery) === 0);
-              return (item.search_value.indexOf(lowercaseQuery) === -1); // hack to return all results.  not matching yet
+              return (item.search_value.indexOf(lowercaseQuery) === -1); // should be === 0. hack to return all results.  not matching yet
             };
           }
 
+          /**
+           * set autocomplete selections to query params
+           */
           function setTaker(selection) {
             $scope.taker = selection;
             console.log("$scope.taker:", $scope.taker);
+            checkForCompleteness();
           }
 
           function setMaker(selection) {
             $scope.maker = selection;
             console.log("$scope.maker:", $scope.maker);
+            checkForCompleteness();
           }
+
+          /**
+           * check form for completion
+           */
+          function checkForCompleteness() {
+            $scope.taker && $scope.maker ? $scope.complete = true : $scope.complete = false;
+            console.log("$scope.complete:", $scope.complete);
+          }
+
         }
       );
 

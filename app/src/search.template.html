@@ -11,7 +11,7 @@
           md-no-cache="noCache"
 
           md-search-text="searchTextTaker"
-          md-search-text-change="searchTextChange(searchTextTaker)"
+          md-search-text-change="searchTextChangeTaker(searchTextTaker)"
           md-items="item in querySearch(searchTextTaker)"
           md-item-text="item.symbol"
 
@@ -39,7 +39,7 @@
             md-no-cache="noCache"
 
             md-search-text="searchTextMaker"
-            md-search-text-change="searchTextChange(searchTextMaker)"
+            md-search-text-change="searchTextChangeMaker(searchTextMaker)"
             md-items="item in querySearch(searchTextMaker)"
             md-item-text="item.symbol"
 
@@ -62,7 +62,7 @@
           </md-not-found>
         </md-autocomplete>
       </h2>
-      <md-button>Search Exchanges</md-button>
+      <md-button ng-disabled="!complete">Search Exchanges</md-button>
     </form>
 
     <md-divider></md-divider>
