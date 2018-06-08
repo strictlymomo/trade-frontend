@@ -1,0 +1,108 @@
+html {
+    background-color: #FFFFFF;
+    min-height: 100%;
+    height: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+body  {
+    font-size: 1rem;
+    line-height: 1.4em;
+    letter-spacing: -0.00462em;
+    color: rgba(0, 0, 0, 0.87);
+    background-color: #FFF;
+}
+
+button, html, input, select, textarea {
+    letter-spacing: -0.00462em;
+}
+
+p {
+    margin-top: 0;
+}
+
+a {
+    color: #3EBBC0;
+}
+
+
+/* ==========================================
+   Layout
+   ========================================== */
+main {
+    min-height: 100%;
+    padding-top: 55px;
+}
+
+ng-view {
+    height: 100vh;
+}
+
+md-content {
+    background-color: #fff;
+}
+
+.margin-container {
+    max-width: 1440px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+@media screen and (min-width: 600px){
+    .margin-container {
+        margin-left: 60px;
+        margin-right: 60px;
+    }
+}
+
+/* min-width = margin-container's max-width + margins */
+@media screen and (min-width: 1560px){
+    .margin-container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+/* ==========================================
+   Breakpoint Rulers
+   ========================================== */
+.momo-tick-container {
+    position: fixed;
+    box-sizing: content-box;
+    height: 20px;
+    display: inline-block;
+    border-right: 1px solid #ec407a;
+    z-index: 1000;
+}
+
+.momo-tick-label {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    font-size: 8px;
+    text-align: right;
+    color: #ec407a;
+}
+
+.momo-guideline {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    border-right: 1px dashed #ec407a;
+    opacity: .5;
+    box-sizing: content-box;
+    z-index: 1001;
+}
+
+#momo-xs {  left: 0;        width: 599px; }
+#momo-guideline-xs {  left: 599px; }
+#momo-sm {  left: 600px;    width: 259px; }
+#momo-guideline-sm {  left: 859px; }
+#momo-md {  left: 960px;    width: 319px; }
+#momo-guideline-md {  left: 1279px; }
+#momo-lg {  left: 1280px;   width: 639px; }
+#momo-guideline-lg {  left: 1919px; }

@@ -1,0 +1,27 @@
+/* ==========================================
+   md-toolbar OVERRIDES
+   ========================================== */
+
+/* get rid of min-height default style */
+#toolbar {
+    min-height: 0;
+    position: fixed;
+}
+
+#toolbar {
+    height: 55px;
+    border-bottom: 1px inset rgba(0,0,0,0.14);
+}
+
+
+#toolbar h1 {
+    font-size: 20px;
+    line-height: 20px;
+    padding: 2px 16px 0 4px;
+}
+
+@media screen and (min-width: 1280px) {
+    #toolbar h1 {
+        padding-left: 40px;
+    }
+}

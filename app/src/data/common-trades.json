@@ -1,0 +1,62 @@
+[
+  {
+    "maker": "$FXY",
+    "taker": "1WO",
+    "best_exchange": "Air Swap",
+    "volume": 10000
+  },
+  {
+    "maker": "$TEAK",
+    "taker": "0xBTC",
+    "best_exchange": "Air Swap",
+    "volume": 9000
+  },
+  {
+    "maker": "1ST",
+    "taker": "2DC",
+    "best_exchange": "Air Swap",
+    "volume": 8000
+  },
+  {
+    "maker": "300",
+    "taker": "A18",
+    "best_exchange": "Air Swap",
+    "volume": 7000
+  },
+  {
+    "maker": "ABT",
+    "taker": "ABYSS",
+    "best_exchange": "Air Swap",
+    "volume": 6000
+  },
+  {
+    "maker": "ACC",
+    "taker": "ADH",
+    "best_exchange": "Air Swap",
+    "volume": 5000
+  },
+  {
+    "maker": "ADI",
+    "taker": "ADL",
+    "best_exchange": "Air Swap",
+    "volume": 4000
+  },
+  {
+    "maker": "ADST",
+    "taker": "ADT",
+    "best_exchange": "Air Swap",
+    "volume": 3000
+  },
+  {
+    "maker": "ADX",
+    "taker": "AE",
+    "best_exchange": "Air Swap",
+    "volume": 2000
+  },
+  {
+    "maker": "AGI",
+    "taker": "AION",
+    "best_exchange": "Air Swap",
+    "volume": 1000
+  }
+]

@@ -1,0 +1,27 @@
+/* ==========================================
+   CONTENT MODULES
+   ========================================== */
+.search-module {
+    border-top: 1px solid rgba(0,0,0,0.4);
+    padding: 0 0 66px;
+
+    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 1s; /* Firefox < 16 */
+    -o-animation: fadein 1s; /* Opera < 12.1 */
+    animation: fadein 1s;
+}
+
+header.search-module {
+    position: relative;
+    margin-top: 64px;
+}
+
+header.search-module h2 {
+    font-size: 1.38rem;
+    color: rgba(0, 0, 0, 0.87);
+    margin: .62em 0 .1em;
+}
+
+.gutter-container {
+    /*background-color: #ec407a;*/
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Where Should I Trade",
+  "private": true,
+  "version": "0.0.1",
+  "description": "DEX recommendation app frontend for token trading",
+  "repository": "https://github.com/strictlymomo/trade-frontend",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": ""
+    }
+  ],
+  "dependencies": {
+    "angular": "^1.6.5",
+    "angular-animate": "^1.6.5",
+    "angular-aria": "^1.6.5",
+    "angular-material": "^1.1.4",
+    "angular-messages": "^1.6.5",
+    "angular-route": "^1.6.5",
+    "angular-sanitize": "^1.6.5",
+    "angular-resource": "^1.6.5"
+  },
+  "devDependencies": {},
+  "scripts": {}
+}
