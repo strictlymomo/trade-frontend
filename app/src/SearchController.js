@@ -11,13 +11,9 @@
   ]);
 
   function SearchController($scope, $timeout, $log, $q, $route, $routeParams) {
-    var self = this;
-    //inherit tokens data from parent
-    self.tokens = $scope.tokens;
 
+    var self = this;
     // console.log('SearchController routeParams:', $routeParams);
-    // console.log("SearchController - inherited $scope.tokens from MainController:");
-    // console.dir(self.tokens);
   }
 
 })();
