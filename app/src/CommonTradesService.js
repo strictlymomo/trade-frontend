@@ -14,9 +14,9 @@
 
     promise.then(
         function(payload) {
-          console.log("CommonTradesService - promise returned:");
+          // console.log("CommonTradesService - promise returned:");
           trades = payload;
-          console.dir(trades);
+          // console.dir(trades);
         }
     );
 

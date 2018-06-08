@@ -3,12 +3,22 @@
    ========================================== */
 .search-module {
     border-top: 1px solid rgba(0,0,0,0.4);
-    padding: 0 0 66px;
+    padding: 50px 16px 66px;
 
     -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadein 1s; /* Firefox < 16 */
     -o-animation: fadein 1s; /* Opera < 12.1 */
     animation: fadein 1s;
+}
+
+form h2 {
+    text-align: center;
+    display: block;
+}
+
+form h2 span {
+    margin: .62em 0 1em;
+    display: block;
 }
 
 header.search-module {
@@ -21,6 +31,7 @@ header.search-module h2 {
     color: rgba(0, 0, 0, 0.87);
     margin: .62em 0 .1em;
 }
+
 
 .gutter-container {
     /*background-color: #ec407a;*/

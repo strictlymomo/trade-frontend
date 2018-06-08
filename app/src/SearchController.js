@@ -1,4 +1,4 @@
-(function(){
+(function () {
 
   app.controller('SearchController', [
     '$scope',
