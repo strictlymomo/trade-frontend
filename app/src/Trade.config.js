@@ -18,7 +18,7 @@ app.config(function (
   }).when('/search', {
     templateUrl: 'src/search.template.html',
     controller: 'SearchController'
-  }).when('/results/:tokenId', {
+  }).when('/results/:takerId/:makerId', {
     templateUrl: 'src/results.template.html',
     controller: 'ResultsController'
   });
